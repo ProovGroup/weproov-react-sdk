@@ -1,0 +1,7 @@
+platform :ios, '10.0'
+use_frameworks!
+
+target "RNWeproov" do
+  pod 'WeProovSDK', path: "/Users/jonathan/Desktop/Codage/WeProov/weproov-ios-sdk"
+end
+
