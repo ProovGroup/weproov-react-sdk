@@ -6,8 +6,8 @@ This is a cordova adapter for:
 
 ## Installation
 
-  $ npm install --save react-native-weproov
-  $ react-native link react-native-weproov
+	$ npm install --save react-native-weproov
+	$ react-native link react-native-weproov
 
 ### Requirements iOS
 
