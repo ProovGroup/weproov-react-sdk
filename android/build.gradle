@@ -2,6 +2,7 @@
 buildscript {
     repositories {
         jcenter()
+        flatDir { dirs "$rootDir/../node_modules/reactlibrary/android/libs" }
     }
 
     dependencies {
@@ -12,15 +13,23 @@ buildscript {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion 27
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+      enabled = true
+    }
+    
     lintOptions {
         abortOnError false
     }
@@ -31,6 +40,8 @@ repositories {
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:+'
+    implementation 'com.facebook.react:react-native:+'
+    implementation 'com.ProovGroup.AndroidSDK:AndroidSDK:0.0.18'
+
 }
   
