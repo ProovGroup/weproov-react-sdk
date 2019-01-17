@@ -6,6 +6,7 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 
 import com.weproov.sdk.WPConfig;
+import user.User;
 
 public class WPUserPlugin extends ReactContextBaseJavaModule {
   
@@ -22,23 +23,23 @@ public class WPUserPlugin extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void connect(String token, String secret, final Callback success, final Callback error){
+    public void connect(String token, String secret, final Callback success){
         WPConfig.connect(this.getCurrentActivity(), token, secret, new WPConfig.ConnectionListener() {
             @Override
             public void onError(Exception e) {
-                error.invoke(e.getMessage());
+                success.invoke(e.getMessage());
             }
 
             @Override
             public void onConnected() {
-                success.invoke("");
+                success.invoke(0);
             }
         });
     }
 
     @ReactMethod
-    public void logout(Callback callback){
-        //WPConfig.logout(); //TODO uncomment with new SDK version
+    public void logout(){
+        User.logout();
     }
 
     @ReactMethod

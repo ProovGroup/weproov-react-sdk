@@ -1,6 +1,6 @@
 # react-native-weproov
 
-This is a cordova adapter for:
+This is a react adapter for:
 - [weproov-ios-sdk](https://github.com/ProovGroup/weproov-ios-sdk)
 - [AndroidSDK](https://github.com/ProovGroup/AndroidSDK)
 
@@ -280,7 +280,7 @@ The list of attributes are in `WPTheme` object:
 - privacyURL
 
 
-#Android
+##Android
 
 To set up your project to build with android:
 
@@ -351,3 +351,9 @@ in android/gradle.properties, set
 android.useAndroidX=true
 android.enableJetifier=true
 ```
+
+
+## Usage
+
+Use Android resources (android/app/src/main/res) to set a custom theme. Check documentation at https://github.com/ProovGroup/AndroidSDK
+

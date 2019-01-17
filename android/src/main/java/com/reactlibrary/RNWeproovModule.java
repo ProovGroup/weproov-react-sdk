@@ -5,6 +5,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.ReadableMap;
 
 import android.widget.Toast;
 import report.Report;
@@ -29,17 +30,12 @@ public class RNWeproovModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void setTheme(Callback success, Callback failure){
-    success.invoke("Success");
+  public void setTheme(ReadableMap nothing, Callback failure){
+    //We don't set theme like this on Android
   }
 
   @ReactMethod
-  public void toast(String message){
-    Toast.makeText(getReactApplicationContext(), message, Toast.LENGTH_SHORT).show();
-  }
-
-  @ReactMethod
-  public void loadProovCode(String proovcode, Callback success, Callback failure){
+  public void loadProovCode(String proovcode, Callback callback){
     WPParameters params = new WPParameters();
     //params.isImportSectionVisibleByDefault = true;
 
@@ -47,17 +43,17 @@ public class RNWeproovModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void loadTemplate(int templateId, Callback success, Callback failure){
+  public void loadTemplate(int templateId, Callback callback){
     //TODO
   }
 
   @ReactMethod
-  public void haveReportInCache(Callback success){
+  public void haveReportInCache(Callback callback){
     if(Report.getCurrent() != null){
-      success.invoke(1);
+      callback.invoke(1);
     }
     else{
-      success.invoke(0);
+      callback.invoke(0);
     }
     
   }

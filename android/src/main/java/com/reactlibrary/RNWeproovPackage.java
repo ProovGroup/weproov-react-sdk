@@ -16,7 +16,7 @@ public class RNWeproovPackage implements ReactPackage {
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-      return Arrays.<NativeModule>asList(new RNWeproovModule(reactContext), new WPUserPlugin(reactContext));
+      return Arrays.<NativeModule>asList(new RNWeproovModule(reactContext), new WPUserPlugin(reactContext), new WPReportUploaderPlugin(reactContext));
     }
 
     // Deprecated from RN 0.47
