@@ -22,7 +22,7 @@ public class WPUserPlugin extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void connect(String token, String secret, Callback success, Callback error){
+    public void connect(String token, String secret, final Callback success, final Callback error){
         WPConfig.connect(this.getCurrentActivity(), token, secret, new WPConfig.ConnectionListener() {
             @Override
             public void onError(Exception e) {
