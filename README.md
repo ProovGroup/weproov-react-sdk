@@ -6,24 +6,25 @@ This is a cordova adapter for:
 
 ## Installation
 
-	$ npm install --save react-native-weproov
-	$ react-native link react-native-weproov
+### iOS
 
-### Requirements iOS
-
-- add keys `NSCameraUsageDescription`, `NSContactsUsageDescription` and `NSLocationWhenInUseUsageDescription` to `Info.plist`
-- disable bitcode
-- set `Background Fetch` for `Background Mode`
-
-Create a `Podfile` in `ios/Podfile`:
+    $ npm install -g react-native-cli
+    $ react-native init example
+    $ cd example
+    $ npm install
+    $ npm install --save https://github.com/ProovGroup/weproov-react-sdk.git
+    $ react-native link react-native-weproov
+    $ cp node_modules/react-native-weproov/ios/example/App.js ./
+    $ cd ios
+    $ nano Podfile
 
 ```
 platform :ios, '10.0'
 use_frameworks!
 
 target "example" do
-  pod 'RNWeproov'
-  pod 'WeProovSDK'
+  pod 'RNWeproov', path: "../node_modules/react-native-weproov"
+  pod 'WeProovSDK', :git => 'https://github.com/ProovGroup/weproov-ios-sdk'
 
   # https://facebook.github.io/react-native/docs/integration-with-existing-apps.html
   # Your 'node_modules' directory is probably in the root of your project,
@@ -46,7 +47,19 @@ target "example" do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 end
+
 ```
+
+    $ sudo gem install cocoapods
+    $ pod install
+    $ cd ../
+    $ react-native run-ios
+
+#### Requirements
+
+- add keys `NSCameraUsageDescription`, `NSContactsUsageDescription` and `NSLocationWhenInUseUsageDescription` to `Info.plist`
+- disable bitcode
+- set `Background Fetch` for `Background Mode`
 
 Update your `AppDelegate.m`:
 
@@ -268,65 +281,3 @@ The list of attributes are in `WPTheme` object:
 - termsOfService
 - termsOfServiceURL
 - privacyURL
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Dev iOS
-
-Dans projet:
-
-	$ react-native init example
-	$ cd example
-	$ npm install
-	$ npm install --save ../Weproov/
-	$ react-native link react-native-weproov
-	$ cp ../example\ working/App.js ./
-	$ cd ios
-	$ nano Podfile
-
-```
-platform :ios, '10.0'
-use_frameworks!
-
-target "example" do
-  pod 'RNWeproov', path: "../node_modules/react-native-weproov"
-  pod 'WeProovSDK', path: "/Users/jonathan/Desktop/Codage/WeProov/weproov-ios-sdk"
-
-  # https://facebook.github.io/react-native/docs/integration-with-existing-apps.html
-  # Your 'node_modules' directory is probably in the root of your project,
-  # but if not, adjust the `:path` accordingly
-  pod 'React', :path => '../node_modules/react-native', :subspecs => [
-    'Core',
-    'CxxBridge', # Include this for RN >= 0.47
-    'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
-    'RCTText',
-    'RCTNetwork',
-    'RCTWebSocket', # Needed for debugging
-    'RCTAnimation', # Needed for FlatList and animations running on native UI thread
-    # Add any other subspecs you want to use in your project
-  ]
-  # Explicitly include Yoga if you are using RN >= 0.42.0
-  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
-
-  # Third party deps podspec link
-  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
-  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
-end
-
-```
-
-	$ pod install
-	$ cd ../
-	$ react-native run-ios
-
