@@ -108,9 +108,6 @@ NativeModules.WPUserPlugin.connect(
 Open a report:
 
 ```
-// Location must be accepted before openning a report
-NativeModules.WPLocationServicePugin.startUpdateLocation();
-
 NativeModules.WeProovSDKPlugin.loadProovCode(
   "YOUR PROOVCODE",
   function(error) {

@@ -32,7 +32,6 @@ export default class App extends Component<Props> {
 
   connect() {
     NativeModules.WPReportUploaderPlugin.sync();
-    NativeModules.WPLocationServicePugin.startUpdateLocation();
 
     NativeModules.RNWeproov.setTheme({
       reportArchivedColor: "#cccccc",

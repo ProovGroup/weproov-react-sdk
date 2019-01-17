@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2E7BBFBB7FCD3C3FA9522F87 /* Pods_RNWeproov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE33B7701B6E04FEF09642A8 /* Pods_RNWeproov.framework */; };
 		AB76CD2A21CABEC200D6C731 /* WPUserPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76CD2321CABEC100D6C731 /* WPUserPlugin.m */; };
-		AB76CD2B21CABEC200D6C731 /* WPLocationServicePugin.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76CD2621CABEC200D6C731 /* WPLocationServicePugin.m */; };
 		AB76CD2C21CABEC200D6C731 /* WPReportUploaderPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76CD2921CABEC200D6C731 /* WPReportUploaderPlugin.m */; };
 		B3E7B58A1CC2AC0600A0062D /* RNWeproov.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNWeproov.m */; };
 /* End PBXBuildFile section */
@@ -31,9 +30,7 @@
 		245047F3DCBB9A5FD26C1058 /* Pods-RNWeproov.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNWeproov.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RNWeproov/Pods-RNWeproov.debug.xcconfig"; sourceTree = "<group>"; };
 		319E06054DF563E1C26F7DB5 /* Pods-RNWeproov.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNWeproov.release.xcconfig"; path = "Pods/Target Support Files/Pods-RNWeproov/Pods-RNWeproov.release.xcconfig"; sourceTree = "<group>"; };
 		AB76CD2321CABEC100D6C731 /* WPUserPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPUserPlugin.m; sourceTree = "<group>"; };
-		AB76CD2421CABEC100D6C731 /* WPLocationServicePugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPLocationServicePugin.h; sourceTree = "<group>"; };
 		AB76CD2521CABEC200D6C731 /* WPReportUploaderPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPReportUploaderPlugin.h; sourceTree = "<group>"; };
-		AB76CD2621CABEC200D6C731 /* WPLocationServicePugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPLocationServicePugin.m; sourceTree = "<group>"; };
 		AB76CD2721CABEC200D6C731 /* WPCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPCommon.h; sourceTree = "<group>"; };
 		AB76CD2821CABEC200D6C731 /* WPUserPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPUserPlugin.h; sourceTree = "<group>"; };
 		AB76CD2921CABEC200D6C731 /* WPReportUploaderPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPReportUploaderPlugin.m; sourceTree = "<group>"; };
@@ -68,8 +65,6 @@
 				B3E7B5881CC2AC0600A0062D /* RNWeproov.h */,
 				B3E7B5891CC2AC0600A0062D /* RNWeproov.m */,
 				AB76CD2721CABEC200D6C731 /* WPCommon.h */,
-				AB76CD2421CABEC100D6C731 /* WPLocationServicePugin.h */,
-				AB76CD2621CABEC200D6C731 /* WPLocationServicePugin.m */,
 				AB76CD2521CABEC200D6C731 /* WPReportUploaderPlugin.h */,
 				AB76CD2921CABEC200D6C731 /* WPReportUploaderPlugin.m */,
 				AB76CD2821CABEC200D6C731 /* WPUserPlugin.h */,
@@ -182,7 +177,6 @@
 				AB76CD2A21CABEC200D6C731 /* WPUserPlugin.m in Sources */,
 				AB76CD2C21CABEC200D6C731 /* WPReportUploaderPlugin.m in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* RNWeproov.m in Sources */,
-				AB76CD2B21CABEC200D6C731 /* WPLocationServicePugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
