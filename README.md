@@ -23,29 +23,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target "example" do
-  pod 'RNWeproov', path: "../node_modules/react-native-weproov"
   pod 'WeProovSDK', :git => 'https://github.com/ProovGroup/weproov-ios-sdk'
-
-  # https://facebook.github.io/react-native/docs/integration-with-existing-apps.html
-  # Your 'node_modules' directory is probably in the root of your project,
-  # but if not, adjust the `:path` accordingly
-  pod 'React', :path => '../node_modules/react-native', :subspecs => [
-    'Core',
-    'CxxBridge', # Include this for RN >= 0.47
-    'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
-    'RCTText',
-    'RCTNetwork',
-    'RCTWebSocket', # Needed for debugging
-    'RCTAnimation', # Needed for FlatList and animations running on native UI thread
-    # Add any other subspecs you want to use in your project
-  ]
-  # Explicitly include Yoga if you are using RN >= 0.42.0
-  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
-
-  # Third party deps podspec link
-  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
-  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 end
 
 ```
