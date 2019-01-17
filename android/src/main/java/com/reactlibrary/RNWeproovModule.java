@@ -38,13 +38,13 @@ public class RNWeproovModule extends ReactContextBaseJavaModule {
   public void loadProovCode(String proovcode, Callback callback){
     WPParameters params = new WPParameters();
     //params.isImportSectionVisibleByDefault = true;
-
     getCurrentActivity().startActivityForResult(WPLoadingActivity.getIntent(getCurrentActivity(), proovcode, params), REQ_CODE);
   }
 
   @ReactMethod
   public void loadTemplate(int templateId, Callback callback){
-    //TODO
+    WPParameters params = new WPParameters();
+    getCurrentActivity().startActivityForResult(WPLoadingActivity.getIntentForTemplate(getCurrentActivity(), templateId, params), REQ_CODE);
   }
 
   @ReactMethod
