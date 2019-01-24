@@ -1,6 +1,6 @@
 # react-native-weproov
 
-This is a cordova adapter for:
+This is a react adapter for:
 - [weproov-ios-sdk](https://github.com/ProovGroup/weproov-ios-sdk)
 - [AndroidSDK](https://github.com/ProovGroup/AndroidSDK)
 
@@ -23,29 +23,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target "example" do
-  pod 'RNWeproov', path: "../node_modules/react-native-weproov"
   pod 'WeProovSDK', :git => 'https://github.com/ProovGroup/weproov-ios-sdk'
-
-  # https://facebook.github.io/react-native/docs/integration-with-existing-apps.html
-  # Your 'node_modules' directory is probably in the root of your project,
-  # but if not, adjust the `:path` accordingly
-  pod 'React', :path => '../node_modules/react-native', :subspecs => [
-    'Core',
-    'CxxBridge', # Include this for RN >= 0.47
-    'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
-    'RCTText',
-    'RCTNetwork',
-    'RCTWebSocket', # Needed for debugging
-    'RCTAnimation', # Needed for FlatList and animations running on native UI thread
-    # Add any other subspecs you want to use in your project
-  ]
-  # Explicitly include Yoga if you are using RN >= 0.42.0
-  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
-
-  # Third party deps podspec link
-  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
-  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 end
 
 ```
@@ -219,13 +197,22 @@ The list of attributes are in `WPTheme` object:
 - listSearchColor
 - listSearchBackgroundColor
 - signatureBackgroundColor
+- signatureNavigationBarItemsColor
 - signatureHeaderSectionFont
 - signatureHeaderSectionColor
 - signatureHeaderInfoFont
 - signatureHeaderInfoColor
+- signatureSubmitButtonBackgroundColor
+- signatureSubmitButtonColor
+- signatureSubmitButtonFont
+- signatureClearButtonColor
+- signatureClearButtonFont
+- signatureSeeReportButtonColor
+- signatureSeeReportButtonFont
 - signatureFooterFont
 - signatureFooterBackgroundColor
 - signatureFooterColor
+- signatureFooterHighlightColor
 - cameraBackgroundColor
 - cameraHeaderTintColor
 - cameraFooterButtonFont
@@ -278,3 +265,82 @@ The list of attributes are in `WPTheme` object:
 - termsOfService
 - termsOfServiceURL
 - privacyURL
+
+
+##Android
+
+To set up your project to build with android:
+
+in android/build.gradle, set
+
+```
+buildscript {
+    ext {
+        buildToolsVersion = "28.0.3"
+        minSdkVersion = 16
+        compileSdkVersion = 28
+        targetSdkVersion = 26
+        supportLibVersion = "28.0.0"
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+    }
+
+    ...
+}
+
+```
+
+in android/app/build.gradle, set
+
+```
+
+android {
+
+    ...
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    configurations.all {
+        resolutionStrategy {
+            force 'androidx.media:media:1.0.0'
+            force 'androidx.legacy:legacy-support-v4:1.0.0'
+            force 'androidx.test:monitor:1.1.0'
+            force 'androidx.lifecycle:lifecycle-livedata-core:2.0.0'
+            force 'androidx.print:print:1.0.0'
+            force 'androidx.drawerlayout:drawerlayout:1.0.0'
+            force 'androidx.viewpager:viewpager:1.0.0'
+            force 'androidx.core:corer:1.0.1'
+            force 'androidx.core:core:1.0.1'
+            force 'androidx.vectordrawable:vectordrawable-animated:1.0.0'
+            force 'androidx.vectordrawable:vectordrawable:1.0.1'
+            force 'androidx.fragment:fragment:1.0.0'
+            force 'androidx.appcompat:appcompat:1.0.0'
+        }
+    }
+}
+
+```
+
+in android/app/gradle/wrapper/gradle-wrapper.properties, set
+
+```
+distributionUrl=https\://services.gradle.org/distributions/gradle-4.6-bin.zip
+```
+
+in android/gradle.properties, set
+
+```
+android.useAndroidX=true
+android.enableJetifier=true
+```
+
+
+## Usage
+
+Use Android resources (android/app/src/main/res) to set a custom theme. Check documentation at https://github.com/ProovGroup/AndroidSDK
+
