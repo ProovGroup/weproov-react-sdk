@@ -136,7 +136,7 @@ RCT_EXPORT_METHOD(loadTemplate:(NSNumber * _Nonnull)templateId callback:(RCTResp
                                   }];
 }
 
-RCT_EXPORT_METHOD(loadTemplate:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(loadReportInCache:(RCTResponseSenderBlock)callback)
 {
   if (_downloadCallback) {
     callback(@[@"already loading"]);
